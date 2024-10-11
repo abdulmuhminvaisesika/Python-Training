@@ -1,4 +1,4 @@
-# Python Basics
+# PYTHON BASICS 
 ## DataTypes
 ### 1. Integer
 * Represents whole numbers without decimal points.

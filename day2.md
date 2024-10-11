@@ -34,6 +34,7 @@ The program aims to find the longest common prefix among a list of strings, iden
 
 5.Output Result: After evaluating all strings, return the longest common prefix found.
 
+### code:
 ```python
 
 def common_prefix(lst):

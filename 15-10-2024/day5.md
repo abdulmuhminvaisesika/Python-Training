@@ -158,9 +158,66 @@ Output: [3, 4, 5, 1, 2]
 
 ### 5.Remove Duplicates from Sorted Array II
 
-To modify a sorted array in-place such that each unique element appears at most twice, and return the modified array with any remaining positions filled with underscores (_).
+This code removes duplicates from a sorted array, ensuring that each unique element appears at most twice. The final result is padded with underscores (_) to maintain the original list length.
+
 
 *Logical View:*
+1. Input Check: If the input list is empty, return False.
+2. Count Occurrences: Use Counter to count how often each element appears in the list.
+3. Set Repetition Rule: Elements can appear at most twice.
+4. Build Result:
+    * Add elements that appear 2 or more times twice.
+   * Add elements that appear only once once.
+5. Padding: If the result list is shorter than the original, fill the remaining spaces with underscores (_).
+6. Return the Modified List.
+
+*Code:*
+``` python
+from collections import Counter
+
+def Remove_Duplicates_from_Sorted_Array(num):
+    if not num:
+        return False  # Return False if the input list is empty
+    
+    # Use Counter to count occurrences of each element
+    counts = Counter(num) 
+    minimum_rep = 2  # Minimum repetition count allowed
+    result = []  # Initialize an empty list to store the result
+
+    # Get elements that appear exactly twice
+    repeated_elements = {key: value for key, value in counts.items() if value == minimum_rep}
+    
+    
+    if repeated_elements:
+        for key, value in counts.items():
+            if value >= 2:
+                result.extend([key] * 2)  # Add the element twice if it appears twice
+            elif value ==1:
+                result.extend([key])  # Repeat it to appear twice
+
+        if len(result)<len(num):
+            while len(result)!=len(num):
+                result.extend("_")
+    else:
+         print(f"it has to repeact atleast {minimum_rep} times.")
+        
+
+        
+    return result
+print(Remove_Duplicates_from_Sorted_Array([0,1,2,3,5,5,5,4,5,4]))
+```
+*Output:*
+```
+[0, 1, 2, 3, 5, 5, 4, 4, '_', '_']
+```
+
+
+
+
+
+___
+
+
 
 
 

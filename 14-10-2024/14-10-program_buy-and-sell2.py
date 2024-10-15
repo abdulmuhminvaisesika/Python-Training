@@ -11,7 +11,7 @@ class BuyAndSell:
         return profit
 
 # Example usage
-lst = [1,2,3,4,5]
+lst = [1,2,3,4,5,7]
 is_profit = BuyAndSell(lst)
 
 print(is_profit.find_profit()) 
